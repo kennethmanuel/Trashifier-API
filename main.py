@@ -61,7 +61,7 @@ def preprocess_file_to_image(file):
     # Expand dimension of image in an array because model expects multiple images in an array.
     image = np.expand_dims(image, axis=0)
     # Preprocess input with a value range of 1-255 to 0-1
-    image = preprocess_input(image)
+    image = tf.keras.applications.mobilenet_v2.preprocess_input(image)
     # Stack array sequentially
     image = np.vstack([image])
 
